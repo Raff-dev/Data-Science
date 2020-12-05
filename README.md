@@ -1,6 +1,5 @@
 [tags]: <> (Python, AI, Machine Learning, Pandas, Numpy, NEAT, Django)
-# Data-Science
-Data Science and Machine learning semi-projects
+Data Science and Machine Learning semi-projects
 ---
 * Linear Regression
   ---
