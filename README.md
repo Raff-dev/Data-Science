@@ -39,36 +39,45 @@ Data Science and Machine learning semi-projects
   covers the topic of prediction of Cardiovascular diseases using logistic regression mini-batch, obtaining just about 80% accuracy.
   
   #### Analyzed Data:
-  <p align="center">
-  <img src="preview/machinelearning_logistic_cardio.png">
-  </p>
-  
+    <p align="center">
+    <img src="preview/machinelearning_logistic_cardio.png">
+    </p>
+
+  #### Activation function:
+    ```python
+    def sigmoid_activation(arr):
+      return np.vectorize(lambda e: 1 / (1 + np.exp(-e)))(arr)
+
+    def predict(theta, X):
+        return sigmoid_activation(theta.T.dot(X))
+  ```
+
   #### Algorithm implementation:
-  ```python
-  def logistic_regression_mini_batch(X, Y, epochs, batch_size, learning_rate):
-    n_features = X.shape[0]
-    n_data = X.shape[1]
+    ```python
+    def logistic_regression_mini_batch(X, Y, epochs, batch_size, learning_rate):
+      n_features = X.shape[0]
+      n_data = X.shape[1]
 
-    theta = np.ones([n_features, 1])
-    costs = []
-    accuracies = []
+      theta = np.ones([n_features, 1])
+      costs = []
+      accuracies = []
 
-    for _ in range(epochs):
-        for sX, sY in iterate(X, Y, size=batch_size):
-            sY_pred = predict(theta, sX)
-            grad = 1 / batch_size * sX.dot((sY_pred - sY).T)
-            theta -= learning_rate * grad
+      for _ in range(epochs):
+          for sX, sY in iterate(X, Y, size=batch_size):
+              sY_pred = predict(theta, sX)
+              grad = 1 / batch_size * sX.dot((sY_pred - sY).T)
+              theta -= learning_rate * grad
 
-            _cost = cost(sY_pred, sY)
-            costs.append(_cost)
+              _cost = cost(sY_pred, sY)
+              costs.append(_cost)
 
-            _accuracy = accuracy(classify(sY_pred), sY)
-            accuracies.append(_accuracy)
+              _accuracy = accuracy(classify(sY_pred), sY)
+              accuracies.append(_accuracy)
 
-    Y_pred = predict(theta,X)
-    result = classify(Y_pred)
-    _accuracy = accuracy(result,Y)
-    return {'theta':theta, 'result':result, 'costs':costs, 'accuracy':_accuracy}
+      Y_pred = predict(theta,X)
+      result = classify(Y_pred)
+      _accuracy = accuracy(result,Y)
+      return {'theta':theta, 'result':result, 'costs':costs, 'accuracy':_accuracy}
     ```
     
   #### Features and size of data used:
