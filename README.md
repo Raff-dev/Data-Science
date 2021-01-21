@@ -1,6 +1,13 @@
 [tags]: <> (Python, AI, Machine Learning, Pandas, Numpy, NEAT, Django)
 Data Science and Machine Learning semi-projects
 ---
+* Clustering
+  ---
+  Data clustering using k-means algorithm, which is a method of vector quantization, originally from signal processing, that aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean.   
+  You can find the [notebook here](https://github.com/Raff-dev/Data-Science/blob/main/MachineLearning/Clustering/KMeansClustering.ipynb).
+  <p align="center">
+  <img  width="600" height="600" src="MachineLearning/Clustering/kmeans_clustering_animation.gif"/>
+  </p>
 * Linear Regression
   ---
   [This notebook](https://github.com/Raff-dev/Data-Science/blob/main/MachineLearning/linear_regression.ipynb)
